@@ -10,8 +10,11 @@ ENV APP_DIR /nightwatch
 RUN apk --no-cache add \
   curl \
   graphicsmagick \
+  python \
   git \
   libstdc++
+
+RUN ln -s /usr/bin/python2.7 /usr/bin/python
 
 # Copied from https://github.com/sgerrand/alpine-pkg-glibc
 # Need to run BrowserStack
@@ -30,19 +33,6 @@ RUN wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux
     && chmod +x BrowserStackLocal \
     && mv BrowserStackLocal /usr/local/bin \
     && rm BrowserStackLocal-linux-x64.zip
-
-# Copy package.json and install dependencies
-#RUN yarn config set strict-ssl false
-#RUN yarn global add webpack nightwatch browserstack-local parallelshell selenium-server-standalone-jar node-sass chromedriver
-#COPY package.json /nightwatch/package.json
-#RUN cd /nightwatch && yarn install
-#RUN yarn config set strict-ssl true
-
-# Copy node_modules
-#RUN mkdir -p $APP_DIR && cp -a /tmp/node_modules $APP_DIR
-
-#ENV BROWSERSTACK_ACCESS_KEY=$BROWSERSTACK_ACCESS_KEY
-
 
 # Change working directory
 WORKDIR $APP_DIR
