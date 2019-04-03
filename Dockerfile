@@ -2,7 +2,7 @@
 # Nightwatch.js Dockerfile
 #
 
-FROM node:11-alpine
+FROM node:latest
 
 ENV APP_DIR /nightwatch
 
@@ -15,9 +15,6 @@ RUN apk --no-cache add \
   libstdc++
 
 RUN ls /usr/bin/python*
-
-RUN yarn add node-gyp global
-RUN yarn add global browserstack-local pm2 express nightwatch chromedriver webpack node-sass
 
 # Copied from https://github.com/sgerrand/alpine-pkg-glibc
 # Need to run BrowserStack
