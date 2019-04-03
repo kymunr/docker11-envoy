@@ -43,4 +43,4 @@ COPY . $APP_DIR
 
 # Run Tests
 #CMD npm run remote
-EXPOSE 8888
+
