@@ -7,7 +7,7 @@ FROM node:latest
 ENV APP_DIR /nightwatch
 
 # Node.js setup
-RUN apt-get --no-cache add \
+RUN apt-get add \
   curl \
   graphicsmagick \
   python \
@@ -18,7 +18,7 @@ RUN ls /usr/bin/python*
 
 # Copied from https://github.com/sgerrand/alpine-pkg-glibc
 # Need to run BrowserStack
-RUN apt-get --no-cache add ca-certificates wget
+RUN apt-get add ca-certificates wget
 RUN wget -q -O  /etc/apt-get/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
 RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.28-r0/glibc-2.28-r0.apt-get
 RUN apt-get add glibc-2.28-r0.apt-get
