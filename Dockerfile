@@ -16,6 +16,9 @@ RUN apk --no-cache add \
 
 RUN ls /usr/bin/python*
 
+RUN yarn add node-gyp global
+RUN yarn add global browserstack-local pm2 express nightwatch chromedriver webpack node-sass
+
 # Copied from https://github.com/sgerrand/alpine-pkg-glibc
 # Need to run BrowserStack
 RUN apk --no-cache add ca-certificates wget
