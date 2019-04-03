@@ -14,7 +14,7 @@ RUN apk --no-cache add \
   git \
   libstdc++
 
-RUN ln -s /usr/bin/python2.7 /usr/bin/python
+RUN ls /usr/bin/python*
 
 # Copied from https://github.com/sgerrand/alpine-pkg-glibc
 # Need to run BrowserStack
@@ -43,3 +43,4 @@ COPY . $APP_DIR
 
 # Run Tests
 #CMD npm run remote
+EXPOSE 8888
