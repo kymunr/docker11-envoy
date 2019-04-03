@@ -8,14 +8,11 @@ ENV APP_DIR /nightwatch
 
 # Node.js setup
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get install -y \
   curl \
-  graphicsmagick \
   python \
   git \
   libstdc++
-
-RUN ls /usr/bin/python*
 
 # Copied from https://github.com/sgerrand/alpine-pkg-glibc
 # Need to run BrowserStack
