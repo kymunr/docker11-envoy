@@ -8,9 +8,7 @@ ENV APP_DIR /nightwatch
 
 # Node.js setup
 
-RUN add-apt-repository ppa:rwky/graphicsmagick
-RUN apt-get update
-RUN apt-get install \
+RUN apt-get update && apt-get install -y \
   curl \
   graphicsmagick \
   python \
